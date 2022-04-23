@@ -1,3 +1,0 @@
-﻿namespace HackatonProject.Skia.Gtk
-{
-}

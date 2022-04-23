@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HackatonProject.Views.ProjectsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:markup="clr-namespace:HackatonProject.MarkupExtensions"
+    xmlns:viewModels="clr-namespace:HackatonProject.ViewModels"
+    Style="{StaticResource MainPage}">
+
+    <ContentPage.BindingContext>
+        <viewModels:ProjectsViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="FilterHeadLine" BasedOn="{StaticResource FirstHeadLine}" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+            <Style x:Key="ThirdHeadLine" BasedOn="{StaticResource SecondHeadLine}" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="#5E6175" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="1.5*, 4*, 0.4*">
+        <StackLayout Grid.Row="0" BackgroundColor="#0F111A">
+            <StackLayout Margin="30,20">
+                <Label Style="{StaticResource FirstHeadLine}" Text="Главная" />
+                <StackLayout Margin="0,30,0,0" Spacing="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Style="{StaticResource FirstHeadLine}" Text="Проекты" />
+                        <Label Style="{StaticResource FirstHeadLine}" Text="Креаторы" TextColor="#5E6175" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Style="{StaticResource FilterHeadLine}" Text="недавние" />
+                        <Label Style="{StaticResource FilterHeadLine}" Text="популярные" TextColor="#5E6175" />
+                        <Label Style="{StaticResource FilterHeadLine}" Text="крупные" TextColor="#5E6175" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Grid.Row="1" Margin="30,0">
+            <Frame
+                Margin="0,30"
+                Padding="15,4,15,20"
+                BackgroundColor="#161926"
+                CornerRadius="20">
+                <StackLayout>
+                    <Label
+                        FontSize="16"
+                        Style="{StaticResource FirstHeadLine}"
+                        Text="Test project #1"
+                        TextColor="#477EFF" />
+                    <Label Style="{StaticResource SecondHeadLine}" Text="Lorem ipsum dolor sit amet" />
+                    <Label Margin="0,10" Style="{StaticResource ThirdHeadLine}" Text="100$ / 1000$ в месяц" />
+                    <StackLayout Spacing="12">
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image HeightRequest="50" Source="{markup:ImageResource HackatonProject.Images.bg.png}" WidthRequest="50" />
+                            <StackLayout Spacing="0">
+                                <Label
+                                    FontSize="14"
+                                    Style="{StaticResource FirstHeadLine}"
+                                    Text="Test team #1"
+                                    TextColor="#477EFF" />
+                                <Label Style="{StaticResource ThirdHeadLine}" Text="500 подписчиков" />
+                            </StackLayout>
+                        </StackLayout>
+                        <Button
+                            Margin="0"
+                            BackgroundColor="#EF4343"
+                            FontSize="12"
+                            HeightRequest="38"
+                            Style="{StaticResource AuthButton}"
+                            Text="Перейти"
+                            WidthRequest="270" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+        <StackLayout
+            Grid.Row="2"
+            BackgroundColor="#0F111A"
+            Orientation="Horizontal"
+            Spacing="60">
+            <ImageButton
+                Margin="45,0,0,0"
+                HeightRequest="24"
+                Source="{markup:ImageResource HackatonProject.Images.image.png}"
+                Style="{StaticResource NavIcon}"
+                WidthRequest="24" />
+            <ImageButton Command="{Binding SignInCommandContainer.Command}" Source="{markup:ImageResource HackatonProject.Images.search.png}" Style="{StaticResource NavIcon}" />
+            <ImageButton Command="{Binding LogInCommandContainer.Command}" Source="{markup:ImageResource HackatonProject.Images.cirle.png}" Style="{StaticResource NavIcon}" />
+            <ImageButton Command="{Binding test3.Command, Mode=TwoWay}" Source="{markup:ImageResource HackatonProject.Images.profile.png}" Style="{StaticResource NavIcon}" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

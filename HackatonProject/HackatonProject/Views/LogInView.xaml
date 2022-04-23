@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HackatonProject.Views.LogInView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:HackatonProject"
+    xmlns:views="clr-namespace:HackatonProject.Views"
+    Style="{StaticResource MainPage}">
+
+    <ScrollView>
+        <Grid Margin="30,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Style="{StaticResource FirstHeadLine}" Text="Войти" />
+
+            <StackLayout Grid.Row="1" VerticalOptions="End">
+                <StackLayout Style="{StaticResource InputData}">
+                    <Label Style="{StaticResource InputPreviewText}" Text="Электронная почта" />
+                    <Frame Padding="10,14" BackgroundColor="#161926">
+                        <local:CustomEntry FontFamily="Aeroport.ttf" Placeholder="crowdcore@gmail.com" Text="{Binding UserToLogIn.Email}" />
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource InputData}">
+                    <Label Style="{StaticResource InputPreviewText}" Text="Пароль" />
+                    <Frame Padding="10,14" BackgroundColor="#161926">
+                        <local:CustomEntry
+                            FontFamily="Aeroport.ttf"
+                            IsPassword="True"
+                            Placeholder="1234"
+                            Text="{Binding UserToLogIn.Password}" />
+                    </Frame>
+                </StackLayout>
+
+                <Button
+                    Margin="0,50,0,80"
+                    BackgroundColor="#EF4343"
+                    Command="{Binding LogInCommand}"
+                    Style="{StaticResource AuthButton}"
+                    Text="Вход" />
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

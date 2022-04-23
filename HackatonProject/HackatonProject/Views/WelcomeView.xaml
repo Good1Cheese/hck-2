@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HackatonProject.Views.WelcomeView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:HackatonProject.ViewModels"
+    Style="{StaticResource MainPage}">
+
+    <ContentPage.BindingContext>
+        <viewModels:WelcomeViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="1" Margin="30,0" Spacing="20">
+            <Label Style="{StaticResource FirstHeadLine}" Text="Lorem ipsum dolor sit amet." />
+            <Label Style="{StaticResource SecondHeadLine}" Text="Lorem ipsum dolor sit amet." />
+            <StackLayout Orientation="Horizontal">
+                <StackLayout>
+                    <CarouselView
+                        HeightRequest="29"
+                        IndicatorView="indicatorView"
+                        ItemsSource="{Binding Test}"
+                        WidthRequest="209">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Label />
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <IndicatorView
+                        x:Name="indicatorView"
+                        Margin="0,40"
+                        HorizontalOptions="Center"
+                        IndicatorColor="#5E6175"
+                        SelectedIndicatorColor="#EF4343" />
+                </StackLayout>
+                <Button Command="{Binding AuthCommand}" Style="{StaticResource NextButton}" Text="Пропустить" />
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

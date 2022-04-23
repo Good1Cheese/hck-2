@@ -1,0 +1,103 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Aeroport-Bold.ttf" />
+    <None Remove="Fonts\Aeroport-BoldItalic.ttf" />
+    <None Remove="Fonts\Aeroport-Italic.ttf" />
+    <None Remove="Fonts\Aeroport-Light.ttf" />
+    <None Remove="Fonts\Aeroport-LightItalic.ttf" />
+    <None Remove="Fonts\Aeroport-Medium.ttf" />
+    <None Remove="Fonts\Aeroport-MediumItalic.ttf" />
+    <None Remove="Fonts\Aeroport.ttf" />
+    <None Remove="Fonts\AeroportMono.ttf" />
+    <None Remove="Images\amd1471.png" />
+    <None Remove="Images\bg.png" />
+    <None Remove="Images\cirle.png" />
+    <None Remove="Images\feed.png" />
+    <None Remove="Images\image%281%29.png" />
+    <None Remove="Images\image%282%29.png" />
+    <None Remove="Images\image%283%29.png" />
+    <None Remove="Images\image.png" />
+    <None Remove="Images\logov1whiteonblack.png" />
+    <None Remove="Images\profile.png" />
+    <None Remove="Images\search.png" />
+    <None Remove="Images\wallet.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\Aeroport-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\Aeroport-BoldItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Aeroport-Italic.ttf" />
+    <EmbeddedResource Include="Fonts\Aeroport-Light.ttf" />
+    <EmbeddedResource Include="Fonts\Aeroport-LightItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Aeroport-Medium.ttf" />
+    <EmbeddedResource Include="Fonts\Aeroport-MediumItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Aeroport.ttf" />
+    <EmbeddedResource Include="Fonts\AeroportMono.ttf" />
+    <EmbeddedResource Include="Images\amd1471.png" />
+    <EmbeddedResource Include="Images\bg.png" />
+    <EmbeddedResource Include="Images\cirle.png" />
+    <EmbeddedResource Include="Images\feed.png" />
+    <EmbeddedResource Include="Images\image(1).png" />
+    <EmbeddedResource Include="Images\image(2).png" />
+    <EmbeddedResource Include="Images\image(3).png" />
+    <EmbeddedResource Include="Images\image.png" />
+    <EmbeddedResource Include="Images\logov1whiteonblack.png" />
+    <EmbeddedResource Include="Images\profile.png" />
+    <EmbeddedResource Include="Images\search.png" />
+    <EmbeddedResource Include="Images\wallet.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\AuthenticationView.xaml.cs">
+      <DependentUpon>AuthenticationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ProjectsView.xaml.cs">
+      <DependentUpon>ProjectsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\WelcomeView.xaml.cs">
+      <DependentUpon>WelcomeView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\AuthenticationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CreatorsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PersonalProjectsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ProfileView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SearchView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\InputFieldView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ProjectsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HackatonProject.Views.ProfileView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:markup="clr-namespace:HackatonProject.MarkupExtensions"
+    xmlns:viewModels="clr-namespace:HackatonProject.ViewModels"
+    Style="{StaticResource MainPage}">
+
+    <ContentPage.BindingContext>
+        <viewModels:ProfileViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="4.5*, 0.4*">
+        <StackLayout Margin="30,20" Spacing="0">
+            <Label Style="{StaticResource FirstHeadLine}" Text="Профиль" />
+            <Frame
+                Margin="0,20,0,15"
+                Padding="15"
+                BackgroundColor="#161926"
+                CornerRadius="10">
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Image HeightRequest="70" Source="{markup:ImageResource HackatonProject.Images.amd1471.png}" WidthRequest="70" />
+                    <StackLayout Spacing="2">
+                        <Label Style="{StaticResource FirstHeadLine}" Text="xxyy" />
+                        <Label Style="{StaticResource SecondHeadLine}" Text="Изменить" TextColor="#EF4343" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <StackLayout Orientation="Horizontal" Spacing="9">
+                <Frame Padding="15,10" BackgroundColor="#161926" CornerRadius="10">
+                    <StackLayout>
+                        <Label Style="{StaticResource SecondHeadLine}" Text="Подписки" TextColor="#5E6175" />
+                        <Label FontSize="12" Style="{StaticResource SecondHeadLine}" Text="1257" />
+                    </StackLayout>
+                </Frame>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Frame Padding="15,10" BackgroundColor="#161926" CornerRadius="10">
+                        <StackLayout>
+                            <Label Style="{StaticResource SecondHeadLine}" Text="Реквизиты" TextColor="#5E6175" />
+                            <StackLayout Orientation="Horizontal">
+                                <Image HeightRequest="14" Source="{markup:ImageResource HackatonProject.Images.wallet.png}" WidthRequest="15" />
+                                <Label FontSize="12" Style="{StaticResource SecondHeadLine}" Text="1234" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Margin="0,15" Spacing="10">
+                <Label Style="{StaticResource SecondHeadLine}" Text="Информация" />
+                <Label Style="{StaticResource SecondHeadLine}" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
+            </StackLayout>
+            <Label Style="{StaticResource SecondHeadLine}" Text="Контакты" />
+        </StackLayout>
+
+        <StackLayout
+            Grid.Row="1"
+            BackgroundColor="#0F111A"
+            Orientation="Horizontal"
+            Spacing="60">
+            <ImageButton
+                Margin="45,0,0,0"
+                Command="{Binding HomeInCommand}"
+                HeightRequest="24"
+                Source="{markup:ImageResource HackatonProject.Images.feed.png}"
+                Style="{StaticResource NavIcon}"
+                WidthRequest="24" />
+            <ImageButton Command="{Binding SignInCommand}" Source="{markup:ImageResource HackatonProject.Images.search.png}" Style="{StaticResource NavIcon}" />
+            <ImageButton Command="{Binding LogInCommand}" Source="{markup:ImageResource HackatonProject.Images.cirle.png}" Style="{StaticResource NavIcon}" />
+            <ImageButton Source="{markup:ImageResource HackatonProject.Images.image(1).png}" Style="{StaticResource NavIcon}" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

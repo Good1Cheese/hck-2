@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HackatonProject.Views.AuthenticationView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:markup="clr-namespace:HackatonProject.MarkupExtensions"
+    xmlns:viewModels="clr-namespace:HackatonProject.ViewModels"
+    Style="{StaticResource MainPage}">
+
+    <ContentPage.BindingContext>
+        <viewModels:AuthViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid HorizontalOptions="Center" VerticalOptions="Center">
+        <StackLayout>
+            <StackLayout Spacing="74">
+                <Image
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    Source="{markup:ImageResource Source=HackatonProject.Images.logov1whiteonblack.png}"
+                    VerticalOptions="Center"
+                    WidthRequest="360" />
+                <StackLayout Spacing="15">
+                    <Button
+                        BackgroundColor="#EF4343"
+                        Command="{Binding SignInCommand}"
+                        Style="{StaticResource AuthButton}"
+                        Text="Регистрация" />
+                    <Button
+                        BackgroundColor="#161926"
+                        Command="{Binding LogInCommand}"
+                        Style="{StaticResource AuthButton}"
+                        Text="Войти" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <StackLayout>
+                    <CarouselView
+                        HeightRequest="29"
+                        IndicatorView="indicatorView"
+                        ItemsSource="{Binding Test}"
+                        WidthRequest="209">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Label
+                                    FontFamily="Aeroport.ttf"
+                                    FontSize="16"
+                                    Text="{Binding}"
+                                    TextColor="White" />
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <IndicatorView
+                        x:Name="indicatorView"
+                        Margin="0,40"
+                        HorizontalOptions="Center"
+                        IndicatorColor="#5E6175"
+                        SelectedIndicatorColor="#EF4343" />
+                </StackLayout>
+                <Button Command="{Binding HomeInCommand}" Style="{StaticResource NextButton}" Text="Я гость" />
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>
